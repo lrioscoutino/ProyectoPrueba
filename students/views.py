@@ -1,6 +1,9 @@
 from django.shortcuts import render
 from django.http.response import HttpResponse
+from students.models import Student
+
 # Create your views here.
+
 
 def students_view(request):
     texto = ("<html>"
@@ -11,7 +14,6 @@ def students_view(request):
 
 
 def students_list_view(request):
-    name = "Luis Rios"
-    student_list = [1, 2 , 3, 4, 5]
-    context = {"name":name, "students":student_list}
-    return render(request, "base.html", context=context)
+    students = Student.objects.all()
+    context = {"students":students}
+    return render(request, "students/list.html", context=context)

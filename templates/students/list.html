@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content  %}
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">N. Control</th>
+      <th scope="col">Activo</th>
+        <th scope="col">Semestre</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for student in students %}
+    <tr>
+      <th scope="row">{{student.id}}</th>
+      <td>{{student.name}}</td>
+      <td>{{student.control_number}}</td>
+      <td>{{student.is_active}}</td>
+        <td>{{student.semester}}</td>
+        <td><button class="btn btn-success">Editar</button></td>
+        <td><button class="btn btn-danger">Eliminar</button></td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
