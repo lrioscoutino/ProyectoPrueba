@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+<legend>Administrador de Estudiantes</legend>
+<form class="form-control" method="post" action=".">
+               {% csrf_token %}
+              <div class="mb-3">
+                      <input type="text" class="form-control" name="name" id="Name"
+                             placeholder="Nombre del Estudiante"
+                      >
+                    </div>
+              <div class="mb-3">
+                      <input type="text" class="form-control" name="control_number" id="Alias"
+                             placeholder="Numnero de Control"
+                      >
+                    </div>
+              <div class="mb-3">
+                      <input type="number" class="form-control"
+                             name="semester"
+                             id="Number"
+                             placeholder="Semestre"
+                      >
+              </div>
+              <button type="submit" class="btn btn-success" >
+                 Guardar
+              </button>
+          </form>
+{% endblock %}
