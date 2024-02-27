@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content  %}
+<form method="post" action="{% url 'student-add' %}">
+    {% csrf_token %}
+  <div class="form-group">
+    <label for="exampleInputEmail1">Nombre del Estudiante</label>
+    <input type="text" class="form-control" name="name" id="exampleInputEmail1" aria-describedby="emailHelp">
+  </div>
+ <div class="form-group">
+    <label for="exampleInputEmail1">Numero de control</label>
+    <input type="text" class="form-control" name="control_number" id="exampleInputEmail1" aria-describedby="emailHelp">
+  </div>
+    <div class="form-group">
+    <label for="exampleInputEmail1">Semestre</label>
+    <input type="number" class="form-control" name="semester" id="exampleInputEmail1" aria-describedby="emailHelp">
+  </div>
+  <div class="form-group form-check">
+    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{% endblock %}
