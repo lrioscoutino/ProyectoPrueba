@@ -4,24 +4,36 @@
 <form class="form-control" method="post" action=".">
                {% csrf_token %}
               <div class="mb-3">
-                      <input type="text" class="form-control" name="name" id="Name"
+                      <input type="text" class="form-control"
+                             name="name"
+                             id="Name"
                              placeholder="Nombre del Estudiante"
+                             value="{{student.name}}"
                       >
                     </div>
               <div class="mb-3">
-                      <input type="text" class="form-control" name="control_number" id="Alias"
+                      <input type="text" class="form-control"
+                             name="control_number"
+                             id="control_number"
                              placeholder="Numnero de Control"
+                             value="{{student.control_number}}"
                       >
                     </div>
               <div class="mb-3">
                       <input type="number" class="form-control"
                              name="semester"
-                             id="Number"
+                             id="semester"
                              placeholder="Semestre"
+                             value="{{student.semester}}"
                       >
               </div>
-              <button type="submit" class="btn btn-success" >
+              <button type="submit" class="btn btn-success" name="save" >
                  Guardar
               </button>
+    {% if student %}
+    <button type="submit" class="btn btn-danger" name="delete" >
+                 Eliminar
+              </button>
           </form>
+{% endif %}
 {% endblock %}

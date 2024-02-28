@@ -19,8 +19,8 @@
       <td>{{student.control_number}}</td>
       <td>{{student.is_active}}</td>
         <td>{{student.semester}}</td>
-        <td><button class="btn btn-success">Editar</button></td>
-        <td><button class="btn btn-danger">Eliminar</button></td>
+        <td><a class="btn btn-success" href="{% url 'student-update' student_id=student.id %}">Editar</a></td>
+        <td><a class="btn btn-danger"  href="{% url 'student-delete' student_id=student.id %}" >Eliminar</a></td>
     </tr>
   {% endfor %}
   </tbody>

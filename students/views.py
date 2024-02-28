@@ -29,3 +29,31 @@ def student_add_view(request):
         student.save()
         return redirect(reverse_lazy('student-list'))
     return render(request, "students/add.html")
+
+
+def student_update_view(request, student_id):
+    student = Student.objects.get(id=student_id)
+    print(request)
+    if request.method == "POST":
+        student.name = request.POST['name']
+        student.control_number = request.POST['control_number']
+        student.semester = request.POST['semester']
+        student.save()
+        return redirect(reverse_lazy('student-list'))
+    return render(
+        request,
+        "students/add.html",
+        context={"student": student}
+    )
+
+
+def student_delete_view(request, student_id):
+    student = Student.objects.get(id=student_id)
+    if 'delete' in request.POST:
+        student.delete()
+        return redirect(reverse_lazy('student-list'))
+    return render(
+        request,
+        "students/add.html",
+        context={"student": student}
+    )
